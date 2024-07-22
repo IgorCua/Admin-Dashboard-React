@@ -13,9 +13,7 @@ export const Topbar = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     const colorMode = useContext(ColorModeContext);
-
-    console.log(theme.palette)
-
+    console.log(colorMode.toggleColorMode)
     return <Box display='flex' justifyContent='space-between' p={2}>
         {/* SEARCH BAR */}
         <Box sx={{ 
