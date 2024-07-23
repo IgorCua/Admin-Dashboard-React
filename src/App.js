@@ -8,7 +8,7 @@ import { Team } from './scenes/team/Index.jsx';
 import { Invoices } from './scenes/invoices/Index.jsx';
 import { Contacts } from './scenes/contacts/index.jsx';
 // import { Bar } from './scenes/bar';
-// import { Form } from './scenes/form';
+import { Form } from './scenes/form/Index.js';
 // import { Line } from './scenes/line';
 // import { Pie } from './scenes/Pie';
 // import { FAQ } from './scenes/faq';
@@ -31,7 +31,7 @@ function App() {
                   <Route path='/team' element={<Team/>}/>
                   <Route path='/contacts' element={<Contacts/>}/>
                   <Route path='/invoices' element={<Invoices/>}/>
-                  {/* <Route path='/form' element={<Form/>}/> */}
+                  <Route path='/form' element={<Form/>}/>
                   {/* <Route path='/bar' element={<Bar/>}/> */}
                   {/* <Route path='/pie' element={<Pie/>}/> */}
                   {/* <Route path='/line' element={<Line/>}/> */}
