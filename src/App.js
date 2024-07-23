@@ -4,9 +4,9 @@ import { Route, Routes } from "react-router";
 import { Dashboard } from './scenes/dashboard/Index';
 import { Topbar } from './scenes/global/Topbar';
 import { Sidebar } from './scenes/global/Sidebar';
-import { Team } from './scenes/team/index.jsx';
+import { Team } from './scenes/team/Index.jsx';
 // import { Invoices } from './scenes/invoices';
-// import { Contacts } from './scenes/contacts';
+import { Contacts } from './scenes/contacts/index.jsx';
 // import { Bar } from './scenes/bar';
 // import { Form } from './scenes/form';
 // import { Line } from './scenes/line';
@@ -29,7 +29,7 @@ function App() {
                 <Routes>
                   <Route path='/' element={<Dashboard/>}/>
                   <Route path='/team' element={<Team/>}/>
-                  {/* <Route path='/contacts' element={<Contacts/>}/> */}
+                  <Route path='/contacts' element={<Contacts/>}/>
                   {/* <Route path='/invoices' element={<Invoices/>}/> */}
                   {/* <Route path='/form' element={<Form/>}/> */}
                   {/* <Route path='/bar' element={<Bar/>}/> */}

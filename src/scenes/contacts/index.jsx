@@ -1,18 +1,26 @@
-import { Box, Typography, useTheme } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
+import { Box, useTheme } from "@mui/material";
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../styles/theme";
-import { mockDataTeam } from "../../data/mockData";
-import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
-import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
-import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
+import { mockDataContacts } from "../../data/mockData";
 import { Header } from "../../components/Header";
 
-export const Team = () => {
+export const Contacts = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
 
     const columns = [
-        { field: 'id', headerName: 'ID', headerClassName: 'dataGrid-header'},
+        { 
+            field: 'id', 
+            headerName: 'ID', 
+            flex: 0.5, 
+            headerClassName: 'dataGrid-header'
+        },
+        { 
+            field: 'registrarId', 
+            headerName: 'Registered ID', 
+            flex: 0.5, 
+            headerClassName: 'dataGrid-header'
+        },
         {
             field: 'name',
             headerName: 'Name',
@@ -41,52 +49,28 @@ export const Team = () => {
             headerClassName: 'dataGrid-header'
         },
         {
-            field: 'accessLevel',
-            headerName: 'Access Level',
+            field: 'address',
+            headerName: 'Address',
             flex: 1,
-            headerClassName: 'dataGrid-header',
-            renderCell: ({ row: { access } }) => {
-                return (
-                    <Box
-                        sx={{
-                            m: `0 auto`,
-                            p: '5px',
-                            width: '60%',
-                            minWidth: '85px',
-                            display: 'flex',
-                            justifyContent: 'center',
-                            transform: 'translateY(calc(50% - 4.5px))',
-                            backgroundColor:
-                                access === 'admin'
-                                    ? colors.greenAccent[600]
-                                    : access === 'manager'
-                                    ? colors.greenAccent[700]
-                                    : colors.greenAccent[700],
-                            borderRadius: '4px',
-                        }}
-                    >
-                        {access === 'admin' && (
-                            <AdminPanelSettingsOutlinedIcon />
-                        )}
-                        {access === 'manager' && <SecurityOutlinedIcon />}
-                        {access === 'user' && <LockOpenOutlinedIcon />}
-                        <Typography
-                            sx={{
-                                ml: '5px',
-                                color: colors.grey[100],
-                            }}
-                        >
-                            {access}
-                        </Typography>
-                    </Box>
-                );
-            },
+            headerClassName: 'dataGrid-header'
         },
+        {
+            field: 'city',
+            headerName: 'City',
+            flex: 1,
+            headerClassName: 'dataGrid-header'
+        },
+        {
+            field: 'zipCode',
+            headerName: 'ZIP Code',
+            flex: 1,
+            headerClassName: 'dataGrid-header'
+        }
     ];
 
     return (
         <Box m={"20px"}>
-            <Header title={"TEAM"} subtitle={"Managing the team members"} />
+            <Header title={"CONTACTS"} subtitle={"List contacts for future reference"} />
             <Box
                 sx={{
                     m: '40px 0 0 0',
@@ -122,9 +106,12 @@ export const Team = () => {
                     '& .MuiCheckbox-root': {
                         color: `${colors.greenAccent[200]} !important`,
                     },
+                    '& .MuiDataGrid-toolbarContainer .MuiButton-text': {
+                        color: `${colors.grey[100]} !important`
+                    }
                 }}
             >
-                <DataGrid rows={mockDataTeam} columns={columns} />
+                <DataGrid rows={mockDataContacts} columns={columns} slots={{ toolbar: GridToolbar }}/>
             </Box>
         </Box>
     );
