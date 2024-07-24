@@ -1,31 +1,25 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../styles/theme";
-import { mockDataTeam } from "../../data/mockData";
-import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
-import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
-import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
+import { mockDataInvoices } from "../../data/mockData";
 import { Header } from "../../components/Header";
 
-export const Team = () => {
+export const Invoices = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
 
     const columns = [
-        { field: 'id', headerName: 'ID', headerClassName: 'dataGrid-header'},
+        { 
+            field: 'id', 
+            headerName: 'ID', 
+            flex: 0.5, 
+            headerClassName: 'dataGrid-header'
+        },
         {
             field: 'name',
             headerName: 'Name',
             flex: 1,
             cellClassName: 'name-column--cell',
-            headerClassName: 'dataGrid-header'
-        },
-        {
-            field: 'age',
-            headerName: 'Age',
-            type: 'number',
-            headerAlign: 'left',
-            align: 'left',
             headerClassName: 'dataGrid-header'
         },
         {
@@ -41,52 +35,30 @@ export const Team = () => {
             headerClassName: 'dataGrid-header'
         },
         {
-            field: 'accessLevel',
-            headerName: 'Access Level',
+            field: 'cost',
+            headerName: 'Cost',
             flex: 1,
             headerClassName: 'dataGrid-header',
-            renderCell: ({ row: { access } }) => {
-                return (
-                    <Box
-                        sx={{
-                            m: `0 auto`,
-                            p: '5px',
-                            width: '60%',
-                            minWidth: '85px',
-                            display: 'flex',
-                            justifyContent: 'center',
-                            transform: 'translateY(calc(50% - 4.5px))',
-                            backgroundColor:
-                                access === 'admin'
-                                    ? colors.greenAccent[600]
-                                    : access === 'manager'
-                                    ? colors.greenAccent[700]
-                                    : colors.greenAccent[700],
-                            borderRadius: '4px',
-                        }}
-                    >
-                        {access === 'admin' && (
-                            <AdminPanelSettingsOutlinedIcon />
-                        )}
-                        {access === 'manager' && <SecurityOutlinedIcon />}
-                        {access === 'user' && <LockOpenOutlinedIcon />}
-                        <Typography
-                            sx={{
-                                ml: '5px',
-                                color: colors.grey[100],
-                            }}
-                        >
-                            {access}
-                        </Typography>
-                    </Box>
-                );
-            },
+            renderCell: (params) => {
+                return <Typography color={'green'} sx={{
+                    transform: 'translateY(calc(50% + 5px))',
+                    color: colors.greenAccent[500]
+                }}>
+                    {params.row.cost}
+                </Typography>
+            }
         },
+        {
+            field: 'date',
+            headerName: 'Date',
+            flex: 1,
+            headerClassName: 'dataGrid-header'
+        }
     ];
 
     return (
         <Box m={"20px"}>
-            <Header title={"TEAM"} subtitle={"Managing the team members"} />
+            <Header title={"INVOICES"} subtitle={"List of invoice balances"} />
             <Box
                 sx={{
                     m: '40px 0 0 0',
@@ -122,9 +94,22 @@ export const Team = () => {
                     '& .MuiCheckbox-root': {
                         color: `${colors.greenAccent[200]} !important`,
                     },
+                    // '& .MuiDataGrid-toolbarContainer .MuiButton-text': {
+                    //     color: `${colors.grey[100]} !important`
+                    // },
+                    // '& .MuiCheckbox-root': {
+                    //     color: `${colors.greenAccent[200]} !important`
+                    // }
+                    '& .MuiDataGrid-columnHeaderDraggableContainer': {
+                        backgroundColor: colors.blueAccent[700],
+                    }
                 }}
             >
-                <DataGrid rows={mockDataTeam} columns={columns} />
+                <DataGrid 
+                    checkboxSelection
+                    rows={mockDataInvoices} 
+                    columns={columns} 
+                />
             </Box>
         </Box>
     );
