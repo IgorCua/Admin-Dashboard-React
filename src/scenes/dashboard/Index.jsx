@@ -280,8 +280,90 @@ export const Dashboard = () => {
                         </Box>
                     ))}
                 </Box>
-                {/* </Box> */}
-                {/* </Box> */}
+
+                {/* ROW 3 */}
+                <Box
+                    sx={{
+                        gridColumn: 'span 4',
+                        gridRow: 'span 2',
+                        backgroundColor: colors.primary[400],
+                        p: '30px'
+                    }}
+                >
+                    <Typography
+                        variant="h5"
+                        fontWeight={'600'}
+                    >
+                        Campaign
+                    </Typography>
+                    <Box sx={{
+                            mt: '25px',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                        }}
+                    >
+                        <ProgressCircle size="125"/>
+                        <Typography variant='h5' sx={{
+                            mt: '15px',
+                            color: colors.greenAccent[500]
+                        }}>
+                            $48,352 revenue generated
+                        </Typography>
+                        <Typography>
+                            Includes extra misc expeditures and costs
+                        </Typography>
+                    </Box>
+                </Box>
+                
+                {/*  */}
+                <Box
+                    sx={{
+                        gridColumn: 'span 4',
+                        gridRow: 'span 2',
+                        backgroundColor: colors.primary[400],
+                    }}
+                >
+                    <Typography
+                        variant="h5"
+                        fontWeight={'600'}
+                        p={'30px 30px 0 30px'}
+                    >
+                        Sales Quantity
+                    </Typography>
+                    <Box sx={{
+                            mt: '-20px',
+                            height: '250px',
+                        }}
+                    >
+                        <BarChart isDashboard={true}/>                        
+                    </Box>
+                </Box>
+                
+                {/*  */}
+                <Box
+                    sx={{
+                        p: '30px',
+                        gridColumn: 'span 4',
+                        gridRow: 'span 2',
+                        backgroundColor: colors.primary[400],
+                    }}
+                >
+                    <Typography
+                        variant="h5"
+                        mb={'15px'}
+                        fontWeight={'600'}
+                        p={'30px 30px 0 30px'}
+                    >
+                        Geography Based Traffic
+                    </Typography>
+                    <Box sx={{
+                            height: '200px',
+                        }}
+                    >
+                        <GeographyChart isDashboard={true}/>                        
+                    </Box>
+                </Box>
             </Box>
         </Box>
     );

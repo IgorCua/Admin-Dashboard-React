@@ -43,7 +43,12 @@ export const Sidebar = () => {
 
     return (
         <Box
+            // backgroundColor={'red'}
             sx={{
+                // height: '100%',
+                "& .pro-sidebar": {
+                    height: '100%'
+                },
                 "& .pro-sidebar-inner": {
                     backgroundColor: `${colors.primary[400]} !important`
                 },
