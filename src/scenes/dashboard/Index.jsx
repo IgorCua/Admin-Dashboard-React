@@ -1,4 +1,4 @@
-import { Box, Button, IconButton, Typography, useTheme } from "@mui/material"
+import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { Header } from "../../components/Header";
 import { tokens } from "../../styles/theme";
 import { mockTransactions } from "../../data/mockData";
@@ -10,127 +10,279 @@ import TrafficIcon from "@mui/icons-material/Traffic";
 import { LineChart } from "../../components/LineChart";
 import { BarChart } from "../../components/BarChart";
 import { GeographyChart } from "../../components/GeographyChart";
-import { StatBox } from '../../components/StatBox';
+import { StatBox } from "../../components/StatBox";
 import { ProgressCircle } from "../../components/ProgressCircle";
 
 export const Dashboard = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
 
-    return <Box m={'20px'}>
-        <Box sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center'
-        }}>
-            <Header title={'DASHBOARD'} subtitle={'welcome to your dashboard'}/>
+    return (
+        <Box m={"20px"}>
+            <Box
+                sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                }}
+            >
+                <Header
+                    title={"DASHBOARD"}
+                    subtitle={"welcome to your dashboard"}
+                />
 
-            <Box>
-                <Button sx={{
-                    backgroundColor: colors.blueAccent[700],
-                    color: colors.grey[100],
-                    fontSize: '14px',
-                    fontWeight: 'bold',
-                    padding: '10px 20px'
-                }}>
-                    <DownloadOutlinedIcon sx={{ mr: '10px' }}/>
-                    Download Reports
-                </Button>
+                <Box>
+                    <Button
+                        sx={{
+                            backgroundColor: colors.blueAccent[700],
+                            color: colors.grey[100],
+                            fontSize: "14px",
+                            fontWeight: "bold",
+                            padding: "10px 20px",
+                        }}
+                    >
+                        <DownloadOutlinedIcon sx={{ mr: "10px" }} />
+                        Download Reports
+                    </Button>
+                </Box>
+            </Box>
+            {/* GRID & CHARTS */}
+            <Box
+                sx={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(12, 1fr)",
+                    gridAutoRows: "140px",
+                    gap: "20px",
+                }}
+            >
+                {/* ROW 1*/}
+                <Box
+                    sx={{
+                        gridColumn: "span 3",
+                        backgroundColor: colors.primary[400],
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                    }}
+                >
+                    <StatBox
+                        title={"12,361"}
+                        subtitle={"Emalis Sent"}
+                        progress={"0.75"}
+                        increase={"+14%"}
+                        icon={
+                            <EmailIcon
+                                sx={{
+                                    color: colors.greenAccent[600],
+                                    fontSize: "26px",
+                                }}
+                            />
+                        }
+                    />
+                </Box>
+                <Box
+                    sx={{
+                        gridColumn: "span 3",
+                        backgroundColor: colors.primary[400],
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                    }}
+                >
+                    <StatBox
+                        title={"431,225"}
+                        subtitle={"Sale Obtained"}
+                        progress={"0.5"}
+                        increase={"+21%"}
+                        icon={
+                            <PointOfSaleIcon
+                                sx={{
+                                    color: colors.greenAccent[600],
+                                    fontSize: "26px",
+                                }}
+                            />
+                        }
+                    />
+                </Box>
+                <Box
+                    sx={{
+                        gridColumn: "span 3",
+                        backgroundColor: colors.primary[400],
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                    }}
+                >
+                    <StatBox
+                        title={"32,441"}
+                        subtitle={"New Clients"}
+                        progress={"0.30"}
+                        increase={"+5%"}
+                        icon={
+                            <PersonAddIcon
+                                sx={{
+                                    color: colors.greenAccent[600],
+                                    fontSize: "26px",
+                                }}
+                            />
+                        }
+                    />
+                </Box>
+                <Box
+                    sx={{
+                        gridColumn: "span 3",
+                        backgroundColor: colors.primary[400],
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                    }}
+                >
+                    <StatBox
+                        title={"1.325.134"}
+                        subtitle={"Trafic Inbound"}
+                        progress={"0.80"}
+                        increase={"+43%"}
+                        icon={
+                            <TrafficIcon
+                                sx={{
+                                    color: colors.greenAccent[600],
+                                    fontSize: "26px",
+                                }}
+                            />
+                        }
+                    />
+                </Box>
+
+                {/* ROW 2 */}
+                <Box
+                    sx={{
+                        gridColumn: "span 8",
+                        gridRow: "span 2",
+                        backgroundColor: [colors.primary[400]],
+                    }}
+                >
+                    <Box
+                        sx={{
+                            mt: "25px",
+                            p: "0 30px",
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                        }}
+                    >
+                        <Box>
+                            <Typography
+                                variant="h5"
+                                sx={{
+                                    fontWeight: "600",
+                                    color: colors.grey[100],
+                                }}
+                            >
+                                Revenue Generated
+                            </Typography>
+                            <Typography
+                                variant="h3"
+                                sx={{
+                                    fontWeight: "bold",
+                                    color: colors.greenAccent[500],
+                                }}
+                            >
+                                $59,342,32
+                            </Typography>
+                        </Box>
+                        <Box>
+                            <IconButton>
+                                <DownloadOutlinedIcon
+                                    sx={{
+                                        fontSize: "26px",
+                                        color: colors.greenAccent[500],
+                                    }}
+                                />
+                            </IconButton>
+                        </Box>
+                    </Box>
+                    <Box height={"250px"} mt={"-20px"}>
+                        <LineChart isDashboard={true} />
+                    </Box>
+                </Box>
+                
+                {/* TRANSACTION */}
+                <Box
+                    sx={{
+                        gridColumn: "span 4",
+                        gridRow: "span 2",
+                        backgroundColor: colors.primary[400],
+                        overflow: "auto",
+                    }}
+                >
+                    <Box
+                        sx={{
+                            p: "15px",
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                            color: colors.grey[100],
+                            borderBottom: `4px solid ${colors.primary[500]}`,
+                        }}
+                    >
+                        <Typography
+                            variant="h5"
+                            sx={{
+                                fontWeight: "600",
+                                color: colors.grey[100],
+                            }}
+                        >
+                            Recent Transactions
+                        </Typography>
+                    </Box>
+                    {mockTransactions.map((transaction, i) => (
+                        <Box
+                            key={`${transaction.txId}-${i}`}
+                            sx={{
+                                p: '15px',
+                                display: "flex",
+                                justifyContent: "space-between",
+                                alignItems: "center",
+                                borderBottom: `4px solid ${colors.primary[500]}`,
+                            }}
+                        >
+                            <Box>
+                                <Typography
+                                    variant="h5"
+                                    sx={{
+                                        fontWeight: "600",
+                                        color: colors.greenAccent[500],
+                                    }}
+                                >
+                                    {transaction.txId}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontWeight: "600",
+                                        color: colors.grey[100],
+                                    }}
+                                >
+                                    {transaction.user}
+                                </Typography>
+                            </Box>
+                            <Box color={colors.grey[100]}>
+                                {transaction.date}
+                            </Box>
+                            <Box
+                                sx={{
+                                    p: "5px 10px",
+                                    backgroundColor: colors.greenAccent[500],
+                                    borderRadius: "4px",
+                                }}
+                            >
+                                {transaction.cost}
+                            </Box>
+                        </Box>
+                    ))}
+                </Box>
+                {/* </Box> */}
+                {/* </Box> */}
             </Box>
         </Box>
-        {/* GRID & CHARTS */}
-        <Box 
-            sx={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(12, 1fr)',
-                gridAutoRows: '140px',
-                gap: '20px'
-            }}
-        >
-            {/* ROW 1*/}
-            <Box sx={{
-                gridColumn: 'span 3',
-                backgroundColor: colors.primary[400],
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between'
-            }}>
-                <StatBox 
-                    title={'12,361'}
-                    subtitle={'Emalis Sent'}
-                    progress={'0.75'}
-                    increase={'+14%'}
-                    icon={
-                        <EmailIcon sx={{
-                            color: colors.greenAccent[600],
-                            fontSize: '26px'
-                        }}/>
-                    }
-                />
-            </Box>
-            <Box sx={{
-                gridColumn: 'span 3',
-                backgroundColor: colors.primary[400],
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-            }}>
-                <StatBox 
-                    title={'431,225'}
-                    subtitle={'Sale Obtained'}
-                    progress={'0.5'}
-                    increase={'+21%'}
-                    icon={
-                        <PointOfSaleIcon sx={{
-                            color: colors.greenAccent[600],
-                            fontSize: '26px'
-                        }}/>
-                    }
-                />
-            </Box>
-            <Box sx={{
-                gridColumn: 'span 3',
-                backgroundColor: colors.primary[400],
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-            }}>
-                <StatBox 
-                    title={'32,441'}
-                    subtitle={'New Clients'}
-                    progress={'0.30'}
-                    increase={'+5%'}
-                    icon={
-                        <PersonAddIcon sx={{
-                            color: colors.greenAccent[600],
-                            fontSize: '26px'
-                        }}/>
-                    }
-                />
-            </Box>
-            <Box sx={{
-                gridColumn: 'span 3',
-                backgroundColor: colors.primary[400],
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-            }}>
-                <StatBox 
-                    title={'1.325.134'}
-                    subtitle={'Trafic Inbound'}
-                    progress={'0.80'}
-                    increase={'+43%'}
-                    icon={
-                        <TrafficIcon sx={{
-                            color: colors.greenAccent[600],
-                            fontSize: '26px'
-                        }}/>
-                    }
-                />
-            </Box>
-
-            {/* ROW 2 */}
-
-        </Box>
-    </Box>
-}
+    );
+};
