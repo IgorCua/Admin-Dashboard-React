@@ -12,7 +12,7 @@ import { Calendar } from './scenes/calendar/Index.jsx';
 import { FAQ } from './scenes/faq/Index.jsx';
 import { Bar } from './scenes/bar/Index.jsx';
 import { Pie } from './scenes/pie/Index.jsx';
-// import { Line } from './scenes/line';
+import { Line } from './scenes/line/Index.jsx';
 // import { Geography } from './scenes/geography';
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
                   <Route path='/faq' element={<FAQ/>}/>
                   <Route path='/bar' element={<Bar/>}/>
                   <Route path='/pie' element={<Pie/>}/>
-                  {/* <Route path='/line' element={<Line/>}/> */}
+                  <Route path='/line' element={<Line/>}/>
                   {/* <Route path='/geography' element={<Geography/>}/> */}
                 </Routes>
               </main>
