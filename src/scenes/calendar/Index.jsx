@@ -110,13 +110,13 @@ export const Calendar = () => {
                     eventClick={handleEventClick}
                     eventsSet={(events) => setCurrentEvents(events)}
                     initialEvents={[
-                        {id: '123', title: 'All-day event', date: '2024-07-28'},
-                        {id: '1143', title: 'Timed event', date: '2024-07-25'},
-                        {id: '1231235', title: 'event1', date: '2024-08-04'},
-                        {id: '1231235', title: 'event2', date: '2024-08-8'},
-                        {id: '1231235', title: 'event3', date: '2024-08-20'},
-                        {id: '1231235', title: 'event4', date: '2024-08-23'},
-                        {id: '1231235', title: 'event5', date: '2024-08-27'}
+                        {id: '123', title: 'All-day event', date: '2024-08-28'},
+                        {id: '1143', title: 'Timed event', date: '2024-08-25'},
+                        {id: '123235', title: 'event1', date: '2024-09-04'},
+                        {id: '1231235', title: 'event2', date: '2024-09-8'},
+                        {id: '121235', title: 'event3', date: '2024-09-20'},
+                        {id: '12235', title: 'event4', date: '2024-09-23'},
+                        {id: '123735', title: 'event5', date: '2024-10-27'}
                     ]}
                 />
             </Box>
