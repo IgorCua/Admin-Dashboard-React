@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.7c166a9b.css",
-    "main.js": "/static/js/main.0e3da91d.js",
-    "static/media/SourceSans3-Regular.ttf": "/static/media/SourceSans3-Regular.d5f259bc2699f6304f9a.ttf",
-    "static/media/SourceSans3-SemiBold.ttf": "/static/media/SourceSans3-SemiBold.d40d72085d560e4061c3.ttf",
-    "static/media/SourceSans3-Bold.ttf": "/static/media/SourceSans3-Bold.82c3c9bec7b83d9d5846.ttf",
-    "static/media/SourceSans3-Light.ttf": "/static/media/SourceSans3-Light.ce7a0eaafe8f8174fea3.ttf",
-    "index.html": "/index.html",
-    "main.7c166a9b.css.map": "/static/css/main.7c166a9b.css.map",
-    "main.0e3da91d.js.map": "/static/js/main.0e3da91d.js.map"
+    "main.css": "/Admin-Dashboard-React/static/css/main.dde2db5a.css",
+    "main.js": "/Admin-Dashboard-React/static/js/main.0e3da91d.js",
+    "static/media/SourceSans3-Regular.ttf": "/Admin-Dashboard-React/static/media/SourceSans3-Regular.d5f259bc2699f6304f9a.ttf",
+    "static/media/SourceSans3-SemiBold.ttf": "/Admin-Dashboard-React/static/media/SourceSans3-SemiBold.d40d72085d560e4061c3.ttf",
+    "static/media/SourceSans3-Bold.ttf": "/Admin-Dashboard-React/static/media/SourceSans3-Bold.82c3c9bec7b83d9d5846.ttf",
+    "static/media/SourceSans3-Light.ttf": "/Admin-Dashboard-React/static/media/SourceSans3-Light.ce7a0eaafe8f8174fea3.ttf",
+    "index.html": "/Admin-Dashboard-React/index.html",
+    "main.dde2db5a.css.map": "/Admin-Dashboard-React/static/css/main.dde2db5a.css.map",
+    "main.0e3da91d.js.map": "/Admin-Dashboard-React/static/js/main.0e3da91d.js.map"
   },
   "entrypoints": [
-    "static/css/main.7c166a9b.css",
+    "static/css/main.dde2db5a.css",
     "static/js/main.0e3da91d.js"
   ]
 }
